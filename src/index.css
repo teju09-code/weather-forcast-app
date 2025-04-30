@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .day-bg {
+    background: linear-gradient(to bottom, #87CEEB, #E0F6FF);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .night-bg {
+    background: linear-gradient(to bottom, #1a1a2e, #16213E);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .moving-clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 24' fill='%23fff' fill-opacity='0.3'%3E%3Cpath d='M44,24H12a12,12,0,1,1,0-24H44a12,12,0,1,1,0,24Z'/%3E%3C/svg%3E");
+    background-size: 200px auto;
+    animation: moveClouds 60s linear infinite;
+  }
+
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 60px 90px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 80px 10px, #fff, rgba(0,0,0,0));
+    background-size: 100px 100px;
+    animation: twinkle 4s ease-in-out infinite;
+  }
+
+  .sun {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    box-shadow: 0 0 50px #FFD700;
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  .moon {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: #FAFAFA;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: glow 3s ease-in-out infinite;
+  }
+}
+
+@keyframes moveClouds {
+  from { background-position: 0 0; }
+  to { background-position: 200px 0; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes glow {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
+}
