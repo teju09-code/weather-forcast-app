@@ -56,7 +56,6 @@ function App() {
           </main>
 
           <footer className="mt-16 text-center text-gray-800 dark:text-gray-200 text-sm relative z-10">
-            <p>© {new Date().getFullYear()} Weather Dashboard. Powered by OpenWeatherMap API.</p>
           </footer>
         </div>
       </div>
